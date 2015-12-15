@@ -49,7 +49,8 @@ var respondGet = function (request, response) {
 
 var requestHandler = function(request, response) {
 
-  if (url.parse(request.url).pathname === '/classes/messages') {
+  if (url.parse(request.url).pathname === '/classes/messages' ||
+    url.parse(request.url).pathname === '/classes/room1') {
     if (request.method === 'GET') {
       respondGet(request, response);
     } else if (request.method === 'POST') {
@@ -117,4 +118,4 @@ var defaultCorsHeaders = {
   "access-control-max-age": 10 // Seconds.
 };
 
-exports.handleRequest = requestHandler;
+exports.requestHandler = requestHandler;
